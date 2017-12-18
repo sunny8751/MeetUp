@@ -15,7 +15,8 @@ module.exports = StyleSheet.create({
         flex: 1, // Take up all available space
         justifyContent: 'center', // Center vertically
         alignItems: 'center', // Center horizontally
-        backgroundColor: 'white' // Darker background for content area
+        backgroundColor: 'white', // Darker background for content area,
+        alignSelf: 'stretch'
     },
     // Content header
     header: {

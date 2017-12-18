@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Title from './title';
-import List from './list';
+import Title from 'app/components/title';
+import List from 'app/components/list';
 
-var styles = require('./styles');
-var listStyles = require('./list_styles');
+var styles = require('app/styles/styles');
+var listStyles = require('app/styles/list_styles');
 
 function getDayString(date) {
     // Thu  Dec 14
@@ -158,7 +158,7 @@ export default class Me extends Component {
     render() {
         return (
             <View style={styles.pageContainer}>
-                <Title text="My Events" createEvent={true} />
+                <Title text="My Events" createEvent={true} backButton={false} />
                 <View style={styles.pageContainer}>
                     <List
                         renderItem={item => this._renderItem(item)}

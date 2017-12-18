@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, SectionList, View } from 'react-native';
 
-var listStyles = require('./list_styles');
+var listStyles = require('app/styles/list_styles');
 
 export default class List extends Component {
     constructor(props) {

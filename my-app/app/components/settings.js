@@ -6,12 +6,12 @@ import {
     TouchableHighlight,
     Alert
 } from 'react-native';
-import Title from './title';
-import List from './list';
+import Title from 'app/components/title';
+import List from 'app/components/list';
 import { Icon } from 'react-native-elements';
 
-var styles = require('./styles');
-var listStyles = require('./list_styles');
+var styles = require('app/styles/styles');
+var listStyles = require('app/styles/list_styles');
 
 export default class Settings extends Component {
     constructor(props) {
@@ -63,7 +63,7 @@ export default class Settings extends Component {
     render() {
         return (
             <View style={styles.pageContainer}>
-                <Title text="Settings" createEvent={false} />
+                <Title text="Settings" createEvent={false} backButton={false} />
                 <View style={styles.pageContainer}>
                     <List
                         renderItem={item => this.renderItem(item)}

@@ -19,6 +19,8 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "babel": "^6.23.0",
+    "babel-plugin-module-alias": "^1.6.0",
     "expo": "^23.0.4",
     "react": "16.0.0",
     "react-native": "0.50.3",
