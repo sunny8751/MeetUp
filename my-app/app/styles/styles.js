@@ -22,7 +22,7 @@ module.exports = StyleSheet.create({
     header: {
         margin: 10, // Add margin
         color: 'black',
-        fontFamily: 'Avenir', // Change font family
+        // fontFamily: 'Avenir', // Change font family
         fontSize: 26 // Bigger font size
     },
     // Content text
@@ -30,7 +30,7 @@ module.exports = StyleSheet.create({
         marginHorizontal: 20, // Add horizontal margin
         color: 'rgba(0, 0, 0, 0.75)', // Semi-transparent text
         textAlign: 'center', // Center
-        fontFamily: 'Avenir',
+        // fontFamily: 'Avenir',
         fontSize: 18
     },
 

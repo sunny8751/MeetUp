@@ -83,7 +83,7 @@ const createEventStyles = StyleSheet.create({
         flex: 0,
         padding: 10,
         fontSize: 14,
-        fontFamily: 'Avenir',
+        // fontFamily: 'Avenir',
         color: 'black',
         borderBottomWidth: 1,
         borderBottomColor: 'lightgrey'

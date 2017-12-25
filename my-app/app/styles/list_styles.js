@@ -12,7 +12,7 @@ module.exports = StyleSheet.create({
         paddingBottom: 2,
         fontSize: 20,
         fontWeight: 'bold',
-        fontFamily: 'Avenir',
+        // fontFamily: 'Avenir',
         backgroundColor: 'rgba(247,247,247,1.0)'
     },
     item: {

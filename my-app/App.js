@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
 import NavigatorService from 'app/services/navigator';
 
-import CreateEventScreen from 'app/screens/create-event';
 import HomeScreen from 'app/screens/home';
+import EventFriendsScreen from 'app/screens/event_friends';
+import EventScreen from 'app/screens/event';
 
 export const App = StackNavigator(
     {
         Home: { screen: HomeScreen },
-        CreateEvent: { screen: CreateEventScreen }
+        EventFriends: { screen: EventFriendsScreen },
+        Event: { screen: EventScreen }
     },
     {
         headerMode: 'none'

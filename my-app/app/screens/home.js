@@ -3,7 +3,7 @@ import { View, Text, Button } from 'react-native';
 import Tabs from 'app/components/tabs';
 import Settings from 'app/components/settings';
 import Me from 'app/components/me';
-import Friends from 'app/components/friends';
+import NewEvent from 'app/components/new_event';
 
 var styles = require('app/styles/styles');
 
@@ -21,12 +21,8 @@ export default class HomeScreen extends Component {
                         <Me />
                     </View>
                     {/* Second tab */}
-                    <View
-                        icon="earth"
-                        type="material-community"
-                        style={styles.content}
-                    >
-                        <Friends />
+                    <View icon="plus" type="octicon" style={styles.content}>
+                        <NewEvent />
                     </View>
                     {/* Third tab */}
                     <View

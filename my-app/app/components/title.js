@@ -68,7 +68,7 @@ class BackButtonComponent extends Component {
     }
 }
 
-export default class Tabs extends Component {
+export default class Title extends Component {
     constructor(props) {
         super(props);
     }
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     title: {
         textAlign: 'center',
         color: 'black',
-        fontFamily: 'Avenir', // Change font family
+        // fontFamily: 'Avenir', // Change font family
         fontSize: 26 // Bigger font size
     },
 
