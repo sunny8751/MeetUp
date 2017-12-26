@@ -8,9 +8,12 @@ module.exports = StyleSheet.create({
     itemView: {
         flexDirection: 'column',
         paddingRight: 15,
-        paddingTop: 5,
+        justifyContent: 'center',
         paddingLeft: 10,
         borderRightWidth: StyleSheet.hairlineWidth,
         borderRightColor: 'skyblue'
+    },
+    itemTimeText: {
+        fontSize: 18
     }
 });

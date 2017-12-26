@@ -13,13 +13,14 @@ import {
     Alert,
     Keyboard
 } from 'react-native';
+import moment from 'moment';
 import { Icon } from 'react-native-elements';
 import NavigatorService from 'app/services/navigator';
 import Title from 'app/components/title';
 import Whitespace from 'app/components/whitespace';
+import { GOING } from 'app/lib/defines';
 
 var styles = require('app/styles/styles');
-var dateLib = require('app/lib/date_lib');
 
 export default class NewEvent extends Component {
     constructor(props) {
@@ -38,8 +39,8 @@ export default class NewEvent extends Component {
             focus: ''
         };
         // DEBUG
-        this.nameSugg = ['Skii', 'Ball', 'Chill'];
-        this.locationSugg = ['Charlotte', 'Oak Ridge', 'Atlanta'];
+        // this.nameSugg = ['Skii', 'Ball', 'Chill'];
+        // this.locationSugg = ['Charlotte', 'Oak Ridge', 'Atlanta'];
     }
 
     onSubmit = () => {
@@ -58,6 +59,15 @@ export default class NewEvent extends Component {
         //         ' on ' +
         //         this.state.date
         // );
+        event = {
+            name: this.state.name,
+            status: GOING,
+            location: this.state.location,
+            startTime: this.state.date,
+            people: {},
+            description: ''
+        };
+        this.props.updateCurrentEvent(event);
         NavigatorService.navigate('EventFriends');
     };
 
@@ -126,15 +136,31 @@ export default class NewEvent extends Component {
         }
     };
 
+    // events: prop passed in from redux store
+    // category: what to give suggestions on ex. 'name' or 'location'
+    getSuggestions = (events, category) => {
+        counts = {};
+        for (var i = 0; i < events.length; i++) {
+            const event = events[i];
+            counts[event[category]] = (counts[event[category]] || 0) + 1;
+        }
+        let sorted = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
+        let top3 = sorted.slice(0, 3);
+        return top3;
+    };
+
     render() {
         // close icon
         closeNameIcon = this.getCloseIcon('name');
         closeLocationIcon = this.getCloseIcon('location');
         // name selector
-        nameSuggestions = this.getSuggestionsComponent('name', this.nameSugg);
+        nameSuggestions = this.getSuggestionsComponent(
+            'name',
+            this.getSuggestions(this.props.events, 'name')
+        );
         locationSuggestions = this.getSuggestionsComponent(
             'location',
-            this.locationSugg
+            this.getSuggestions(this.props.events, 'location')
         );
         // date picker
         datePicker =
@@ -146,9 +172,9 @@ export default class NewEvent extends Component {
                 />
             ) : (
                 <Text style={newEventStyles.dateText}>
-                    {dateLib.getDayString(this.state.date) +
+                    {moment(this.state.date).format('ddd  MMM D') +
                         ', ' +
-                        dateLib.getTimeString(this.state.date)}
+                        moment(this.state.date).format('h:mm a')}
                 </Text>
             );
         return (
