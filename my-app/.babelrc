@@ -5,5 +5,5 @@
             "plugins": ["transform-react-jsx-source"]
         }
     },
-    "plugins": [["module-alias", [{ "src": "./app", "expose": "app" }]]]
+    "plugins": [["module-alias", [{ "src": "./src", "expose": "src" }, { "src": "./", "expose": "root" }]]]
 }
