@@ -49,9 +49,11 @@ export default class EventDetails extends Component {
                             size={22}
                         />
                         <Text style={eventDetailStyles.detailsText}>
-                            {moment(this.state.startTime).format(
-                                'dddd, MMM D, YYYY [at] h:mm a'
-                            )}
+                            {this.state.startTime
+                                ? moment(this.state.startTime).format(
+                                      'dddd, MMM D, YYYY [at] h:mm a'
+                                  )
+                                : 'Choose time'}
                         </Text>
                     </View>
 

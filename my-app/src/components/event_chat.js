@@ -32,20 +32,19 @@ export default class EventChat extends Component {
     static navigationOptions = ({ navigation }) => ({
         headerStyle: { height: 80 },
         headerTitle: (
-            <TouchableOpacity
-                style={{ height: 80, width: 200 }}
-                onPress={() =>
-                    navigate(
-                        navigation.dispatch,
-                        'EventDetails',
-                        navigation.state.params
-                    )
-                }
-            >
+            <View style={{ height: 80, width: 200 }}>
                 <Text style={eventChatStyles.headerText}>
                     {navigation.state.params.event.name}
                 </Text>
-                <View style={eventChatStyles.horizontalView}>
+                <TouchableOpacity
+                    style={eventChatStyles.horizontalView}
+                    onPress={() =>
+                        navigate(navigation.dispatch, 'EventDetails', {
+                            event: navigation.state.params.event,
+                            action: 'choose_time'
+                        })
+                    }
+                >
                     <Icon name="ios-time-outline" type="ionicon" size={22} />
                     <Text
                         style={[
@@ -53,21 +52,31 @@ export default class EventChat extends Component {
                             { paddingLeft: 5 }
                         ]}
                     >
-                        {moment(navigation.state.params.event.startTime).format(
-                            'MMM D, YYYY h:mm a'
-                        )}
+                        {navigation.state.params.event.startTime
+                            ? moment(
+                                  navigation.state.params.event.startTime
+                              ).format('MMM D, YYYY h:mm a')
+                            : 'Choose time'}
                     </Text>
-                </View>
+                </TouchableOpacity>
 
-                <View style={eventChatStyles.horizontalView}>
+                <TouchableOpacity
+                    style={eventChatStyles.horizontalView}
+                    onPress={() =>
+                        navigate(navigation.dispatch, 'EventDetails', {
+                            event: navigation.state.params.event,
+                            action: 'choose_location'
+                        })
+                    }
+                >
                     <Icon name="location" type="evilicon" size={22} />
                     <Text style={eventChatStyles.subheaderText}>
                         {navigation.state.params.event.location
                             ? navigation.state.params.event.location
                             : 'Choose location'}
                     </Text>
-                </View>
-            </TouchableOpacity>
+                </TouchableOpacity>
+            </View>
         ),
         headerBackTitle: null,
         headerRight: (
